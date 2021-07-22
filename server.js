@@ -27,12 +27,12 @@ app.use(express.json())
 
 //Database
 const db = kenx({
-  client: "pg",
+  client: process.env.CLIENT_POSTGRESS,
   connection: {
-    host: "127.0.0.1",
-    user: "postgres",
-    password: "Wellington",
-    database: "postgres",
+    host: process.env.HOST_POSTGRESS,
+    user: process.env.USER,
+    password: process.env.PASSWORD_POSTGRESS,
+    database: process.env.DATABASE_KEY,
   },
   searchPath: ["knex", "public"],
 })

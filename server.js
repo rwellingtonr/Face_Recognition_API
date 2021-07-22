@@ -39,7 +39,10 @@ const db = kenx({
 
 const SERVER_PATH = process.env.SERVER_PATH
 // Root Page
-app.get("/", () => {})
+app.get("/", () => {
+  res.json("it is working")
+})
+
 //Signin Page
 app.post("/signin", signin.login(db, bcrypt))
 

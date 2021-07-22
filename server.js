@@ -54,7 +54,7 @@ app.put("/image", image.imgCounter(db)) //update the entries
 app.post("/imageurl", image.handleAPI())
 
 //Listen the Server
-app.listen(SERVER_PATH, () => {
+app.listen(process.env.PORT || SERVER_PATH, () => {
   // console.log(db("login").select("*"))
-  console.log(`App is running, server ${SERVER_PATH}!!`)
+  console.log(`App is running, server ${process.env.PORT}!!`)
 })

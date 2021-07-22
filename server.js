@@ -27,19 +27,19 @@ app.use(express.json())
 
 //Database
 const db = kenx({
-  client: process.env.CLIENT_POSTGRESS,
+  client: "pg",
   connection: {
-    host: process.env.HOST_POSTGRESS,
-    user: process.env.USER,
-    password: process.env.PASSWORD_POSTGRESS,
-    database: process.env.DATABASE_KEY,
+    host: "127.0.0.1",
+    user: "postgres",
+    password: "Wellington",
+    database: "postgres",
   },
   searchPath: ["knex", "public"],
 })
 
 const SERVER_PATH = process.env.SERVER_PATH
 // Root Page
-app.get("/", () => {
+app.get("/", (req, res) => {
   res.send("it is working")
 })
 

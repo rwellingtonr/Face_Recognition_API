@@ -40,7 +40,7 @@ const db = kenx({
 const SERVER_PATH = process.env.SERVER_PATH
 // Root Page
 app.get("/", () => {
-  res.json("it is working")
+  res.send("it is working")
 })
 
 //Signin Page

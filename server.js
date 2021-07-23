@@ -27,7 +27,7 @@ app.use(express.json())
 
 //Database
 const db = kenx({
-  client: process.env.CLIENT_POSTGRESS,
+  client: "pg",
   // connection: {
   //   host: "postgresql-rigid-68534",
   //   user: process.env.USER,

@@ -29,7 +29,7 @@ app.use(express.json())
 const db = kenx({
   client: process.env.CLIENT_POSTGRESS,
   connection: {
-    host: process.env.HOST_POSTGRESS,
+    host: "postgresql-rigid-68534",
     user: process.env.USER,
     password: process.env.PASSWORD_POSTGRESS,
     database: process.env.DATABASE_KEY,

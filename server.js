@@ -10,7 +10,7 @@
 // Liberaries
 import express from "express"
 import cors from "cors"
-import kenx from "knex"
+const knex = require("knex")
 import bcrypt from "bcrypt"
 import dotenv from "dotenv/config"
 
@@ -26,7 +26,7 @@ app.use(cors())
 app.use(express.json())
 
 //Database
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
+
 const db = knex({
   client: "pg",
   connection: {
@@ -36,12 +36,6 @@ const db = knex({
     },
   },
   searchPath: ["knex", "public"],
-  migrations: {
-    directory: ".database/migrations",
-  },
-  seeds: {
-    directory: ".database/seeds",
-  },
 })
 
 const SERVER_PATH = process.env.SERVER_PATH

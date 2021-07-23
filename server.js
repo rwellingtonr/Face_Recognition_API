@@ -13,7 +13,7 @@ import cors from "cors"
 import kenx from "knex"
 import bcrypt from "bcrypt"
 import dotenv from "dotenv/config"
-const parse = require("pg-connection-string").parse
+import client from "pg"
 
 //  Controlers
 import register from "./Controllers/register.js"
@@ -27,11 +27,13 @@ app.use(cors())
 app.use(express.json())
 
 //Database
-const pgconfig = parse(process.env.DATABASE_URL)
-pgconfig.ssl = { rejectUnauthorized: false }
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 const db = knex({
   client: "pg",
-  connection: pgconfig,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 })
 
 const SERVER_PATH = process.env.SERVER_PATH

@@ -10,7 +10,7 @@
 // Liberaries
 import express from "express"
 import cors from "cors"
-const knex = require("knex")
+import knex from "knex"
 import bcrypt from "bcrypt"
 import dotenv from "dotenv/config"
 
@@ -26,7 +26,7 @@ app.use(cors())
 app.use(express.json())
 
 //Database
-const { Client } = require("pg")
+import { Client } from "pg"
 
 const client = new Client({
   connectionString: process.env.DATABASE_URL,

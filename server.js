@@ -30,6 +30,12 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 const db = knex({
   client: "pg",
   connection: process.env.DATABASE_URL,
+  migrations: {
+    directory: ".database/migrations",
+  },
+  seeds: {
+    directory: ".database/seeds",
+  },
   ssl: {
     rejectUnauthorized: false,
   },

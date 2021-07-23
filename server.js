@@ -13,7 +13,7 @@ import cors from "cors"
 import kenx from "knex"
 import bcrypt from "bcrypt"
 import dotenv from "dotenv/config"
-import client from "pg"
+import { Client } from "pg"
 
 //  Controlers
 import register from "./Controllers/register.js"

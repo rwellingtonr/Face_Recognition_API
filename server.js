@@ -29,17 +29,19 @@ app.use(express.json())
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 const db = knex({
   client: "pg",
-  connection: process.env.DATABASE_URL,
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
+  searchPath: ["knex", "public"],
   migrations: {
     directory: ".database/migrations",
   },
   seeds: {
     directory: ".database/seeds",
   },
-  ssl: {
-    rejectUnauthorized: false,
-  },
-  searchPath: ["knex", "public"],
 })
 
 const SERVER_PATH = process.env.SERVER_PATH

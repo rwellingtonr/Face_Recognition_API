@@ -30,8 +30,10 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 const db = knex({
   client: "pg",
   connection: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
   searchPath: ["knex", "public"],
-  ssl: false,
 })
 
 const SERVER_PATH = process.env.SERVER_PATH

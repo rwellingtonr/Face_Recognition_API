@@ -28,13 +28,17 @@ app.use(express.json())
 //Database
 const db = kenx({
   client: process.env.CLIENT_POSTGRESS,
-  connection: {
-    host: "postgresql-rigid-68534",
-    user: process.env.USER,
-    password: process.env.PASSWORD_POSTGRESS,
-    database: process.env.DATABASE_KEY,
+  // connection: {
+  //   host: "postgresql-rigid-68534",
+  //   user: process.env.USER,
+  //   password: process.env.PASSWORD_POSTGRESS,
+  //   database: process.env.DATABASE_KEY,
+  // },
+  // searchPath: ["knex", "public"],
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
   },
-  searchPath: ["knex", "public"],
 })
 
 const SERVER_PATH = process.env.SERVER_PATH

@@ -13,7 +13,6 @@ import cors from "cors"
 import kenx from "knex"
 import bcrypt from "bcrypt"
 import dotenv from "dotenv/config"
-import { Client } from "pg"
 
 //  Controlers
 import register from "./Controllers/register.js"
@@ -31,7 +30,8 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 const db = knex({
   client: "pg",
   connection: process.env.DATABASE_URL,
-  ssl: true,
+  searchPath: ["knex", "public"],
+  ssl: false,
 })
 
 const SERVER_PATH = process.env.SERVER_PATH
